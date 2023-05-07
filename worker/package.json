@@ -1,0 +1,16 @@
+{
+  "name": "fullstack",
+  "version": "1.0.0",
+  "description": "multi container app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon"
+  },
+  "author": "SG",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "1.18.3",
+    "redis": "2.8.0"
+  }
+}

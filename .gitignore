@@ -1,0 +1,35 @@
+# Ignore node_modules for all services
+client/node_modules/
+server/node_modules/
+worker/node_modules/
+nginx/node_modules/
+
+# Ignore .env files containing environment variables
+client/.env
+server/.env
+worker/.env
+nginx/.env
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Ignore build and distribution directories
+client/build/
+client/dist/
+server/build/
+server/dist/
+worker/build/
+worker/dist/
+nginx/build/
+nginx/dist/
+
+# Ignore cache and generated files
+client/.cache/
+server/.cache/
+worker/.cache/
+nginx/.cache/
+
+# Ignore IDE and editor-specific folders and files
+.vscode/
