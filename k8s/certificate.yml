@@ -11,3 +11,10 @@ spec:
   dnsNames:
     - sgsite.es
     - www.sgsite.es
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - sgsite.es
+          - www.sgsite.es
