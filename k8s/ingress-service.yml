@@ -6,21 +6,46 @@ metadata:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: 'true'
     nginx.ingress.kubernetes.io/rewrite-target: /$1
+    certmanager.k8s.io/cluster-issuer: 'letsencrypt-prod'
+    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
 spec:
+  tls:
+    - hosts:
+        - sgsite.es
+        - www.sgsite.es
+      secretName: sgsite-es
   rules:
-    - http:
-        paths:
-          - path: /?(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: client-cluster-ip-service
-                port: 
-                  number: 3000
-          - path: /api/?(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: server-cluster-ip-service
-                port: 
-                  number: 5000
+    - host: sgsite.es
+      http:
+          paths:
+            - path: /?(.*)
+              pathType: Prefix
+              backend:
+                service:
+                  name: client-cluster-ip-service
+                  port: 
+                    number: 3000
+            - path: /api/?(.*)
+              pathType: Prefix
+              backend:
+                service:
+                  name: server-cluster-ip-service
+                  port: 
+                    number: 5000
+    - host: www.sgsite.es
+      http:
+          paths:
+            - path: /?(.*)
+              pathType: Prefix
+              backend:
+                service:
+                  name: client-cluster-ip-service
+                  port: 
+                    number: 3000
+            - path: /api/?(.*)
+              pathType: Prefix
+              backend:
+                service:
+                  name: server-cluster-ip-service
+                  port: 
+                    number: 5000
