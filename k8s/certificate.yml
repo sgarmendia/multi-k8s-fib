@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: sgsite-es-tls
+spec:
+  secretName: sgsite-es
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: sgsite.es
+  dnsNames:
+    - sgsite.es
+    - www.sgsite.es
